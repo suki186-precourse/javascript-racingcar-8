@@ -4,6 +4,7 @@ import {
   parseCarNameByComma,
   parseTryCount,
 } from "./utils/utils.js";
+import Cars from "./domain/Cars.js";
 
 class App {
   async run() {
@@ -13,11 +14,14 @@ class App {
     // Car 객체 배열 생성
     const cars = createCars(carNames);
 
+    // 모든 Car를 담은 객체 생성
+    const allCars = new Cars(cars);
+
     // 시도 횟수
     const tryCount = await this.getTryCount();
 
-    Console.print(carNames.join(","));
-    Console.print(tryCount);
+    // 경주 실행 결과 출력
+    await this.printRaceResult(allCars, tryCount);
   }
 
   // ===== 자동차 이름 입력 및 구분자 기준으로 분리
@@ -40,6 +44,20 @@ class App {
 
     // 정수로 변환
     return parseTryCount(tryCountInput);
+  }
+
+  // 실행 결과 출력
+  async printRaceResult(allCars, tryCount) {
+    Console.print("\n실행 결과");
+
+    // 시도 횟수만큼 반복
+    for (let r = 0; r < tryCount; r++) {
+      allCars.moveAll();
+      allCars.printAllResult().forEach((e) => {
+        Console.print(e);
+      });
+      Console.print("");
+    }
   }
 }
 

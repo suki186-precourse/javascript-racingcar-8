@@ -1,3 +1,7 @@
+import { Console } from "@woowacourse/mission-utils";
+import { MOVE_STANDARD } from "../constants.js";
+import { getRandomNumber } from "../utils/utils.js";
+
 // 자동차 하나 클래스
 export default class Car {
   constructor(name) {
@@ -5,8 +9,13 @@ export default class Car {
     this.position = 0; // 이동 거리
   }
 
-  // 이동 로직 구현 예정
+  // 랜덤 숫자를 기준으로 전진 여부 판별
   move() {
-    this.position += 0;
+    const randomNumber = getRandomNumber(); // 난수 생성
+
+    // 랜던 값이 기준 값보다 크다면 전진
+    if (randomNumber >= MOVE_STANDARD) {
+      this.position += 1;
+    }
   }
 }

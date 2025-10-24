@@ -15,4 +15,15 @@ export default class Cars {
   printAllResult() {
     return this.cars.map((c) => c.printDistance());
   }
+
+  // 최종 우승자 판별
+  getWinners() {
+    // 자동차별 position 중 최댓값
+    const maxPosition = Math.max(...this.cars.map((c) => c.position));
+
+    // maxPosition을 가진 자동차 이름들
+    return this.cars
+      .filter((c) => c.position === maxPosition)
+      .map((c) => c.name);
+  }
 }

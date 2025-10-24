@@ -22,6 +22,9 @@ class App {
 
     // 경주 실행 결과 출력
     await this.printRaceResult(allCars, tryCount);
+
+    // 최종 우승자 출력
+    await this.printWinners(allCars);
   }
 
   // ===== 자동차 이름 입력 및 구분자 기준으로 분리
@@ -58,6 +61,12 @@ class App {
       });
       Console.print("");
     }
+  }
+
+  // 최종 우승자 출력
+  async printWinners(allCars) {
+    const winnners = allCars.getWinners();
+    Console.print(`최종 우승자 : ${winnners.join(", ")}`);
   }
 }
 

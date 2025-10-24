@@ -9,3 +9,8 @@ export function parseCarNameByComma(input) {
 export function createCars(names) {
   return names.map((name) => new Car(name));
 }
+
+// 시도 횟수 입력값을 정수로 변환
+export function parseTryCount(count) {
+  return Number(count);
+}

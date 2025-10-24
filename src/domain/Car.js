@@ -1,4 +1,3 @@
-import { Console } from "@woowacourse/mission-utils";
 import { MOVE_STANDARD } from "../constants.js";
 import { getRandomNumber } from "../utils/utils.js";
 
@@ -13,9 +12,15 @@ export default class Car {
   move() {
     const randomNumber = getRandomNumber(); // 난수 생성
 
-    // 랜던 값이 기준 값보다 크다면 전진
+    // 랜덤 값이 기준 값보다 크다면 전진
     if (randomNumber >= MOVE_STANDARD) {
       this.position += 1;
     }
+  }
+
+  // 현재 위치만큼 문자열로(-) 표시
+  printDistance() {
+    const distance = "-".repeat(this.position);
+    return `${this.name} : ${distance}`;
   }
 }

@@ -77,6 +77,9 @@ src/
 ├── utils/
 │   ├── validators.js   # 입력값, 구분자 검증
 │   └── utils.js        # 유틸 함수(문자열 분리, 숫자 변환)
+├── view/
+│   ├── InputView.js    # 입력
+│   └── OutputView.js   # 출력
 └── constants.js        # 상수 파일
 
 ```

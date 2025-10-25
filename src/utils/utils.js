@@ -1,8 +1,9 @@
+import { NAME_DELIMITER } from "../constants.js";
 import Car from "../domain/Car.js";
 
 // 문자열을 쉼표(,) 기준으로 나누기, 공백 제거
 export function parseCarNameByComma(input) {
-  return input.split(",").map((name) => name.trim());
+  return input.split(NAME_DELIMITER).map((name) => name.trim());
 }
 
 // Car 객체 배열 생성

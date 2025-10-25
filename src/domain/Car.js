@@ -1,4 +1,4 @@
-import { MOVE_STANDARD } from "../constants.js";
+import { MOVE_STANDARD, MOVE_STEP } from "../constants.js";
 import { getRandomNumber } from "../utils/randomUtils.js";
 
 // 자동차 하나 클래스
@@ -14,7 +14,7 @@ export default class Car {
 
     // 랜덤 값이 기준 값보다 크다면 전진
     if (randomNumber >= MOVE_STANDARD) {
-      this.position += 1;
+      this.position += MOVE_STEP;
     }
   }
 }

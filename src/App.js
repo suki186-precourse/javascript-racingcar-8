@@ -1,4 +1,3 @@
-import { Console } from "@woowacourse/mission-utils";
 import { createCars } from "./utils/utils.js";
 import Cars from "./domain/Cars.js";
 import { InputView } from "./view/InputView.js";

@@ -1,5 +1,5 @@
 import { MOVE_STANDARD } from "../constants.js";
-import { getRandomNumber } from "../utils/utils.js";
+import { getRandomNumber } from "../utils/randomUtils.js";
 
 // 자동차 하나 클래스
 export default class Car {

@@ -1,11 +1,8 @@
 import { Console } from "@woowacourse/mission-utils";
-import {
-  createCars,
-  parseCarNameByComma,
-  parseTryCount,
-} from "./utils/utils.js";
+import { createCars } from "./utils/utils.js";
 import Cars from "./domain/Cars.js";
 import { InputView } from "./view/InputView.js";
+import { OutputView } from "./view/OutputView.js";
 
 class App {
   async run() {
@@ -13,37 +10,23 @@ class App {
     const carNames = await InputView.getCarNames();
     const tryCount = await InputView.getTryCount();
 
-    // Car 객체 배열 생성
-    const cars = createCars(carNames);
+    // ===== 2. 모든 Car를 담은 도메인 Cars 생성
+    const allCars = new Cars(createCars(carNames));
 
-    // 모든 Car를 담은 객체 생성
-    const allCars = new Cars(cars);
+    // ===== 3. 실행 및 결과 출력
+    OutputView.printResultHeader(); // "실행 결과" 텍스트
 
-    // 경주 실행 결과 출력
-    await this.printRaceResult(allCars, tryCount);
-
-    // 최종 우승자 출력
-    await this.printWinners(allCars);
-  }
-
-  // 실행 결과 출력
-  async printRaceResult(allCars, tryCount) {
-    Console.print("\n실행 결과");
-
-    // 시도 횟수만큼 반복
+    // 시도 횟수만큼 라운드 반복
     for (let r = 0; r < tryCount; r++) {
       allCars.moveAll();
-      allCars.printAllResult().forEach((e) => {
-        Console.print(e);
-      });
-      Console.print("");
-    }
-  }
 
-  // 최종 우승자 출력
-  async printWinners(allCars) {
-    const winnners = allCars.getWinners();
-    Console.print(`최종 우승자 : ${winnners.join(", ")}`);
+      const carInfos = allCars.getCarInfos();
+      OutputView.printRaceRoundResult(carInfos); // 라운드 결과 출력
+    }
+
+    // ===== 4. 최종 우승자 출력
+    const winners = allCars.getWinners();
+    OutputView.printWinners(winners);
   }
 }
 

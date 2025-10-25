@@ -11,9 +11,12 @@ export default class Cars {
     });
   }
 
-  // 모든 자동차 상태 문자열 배열
-  printAllResult() {
-    return this.cars.map((c) => c.printDistance());
+  // 모든 자동차 정보 반환
+  getCarInfos() {
+    return this.cars.map((c) => ({
+      name: c.name,
+      position: c.position,
+    }));
   }
 
   // 최종 우승자 판별

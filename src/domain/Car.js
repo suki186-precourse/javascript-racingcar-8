@@ -17,10 +17,4 @@ export default class Car {
       this.position += 1;
     }
   }
-
-  // 현재 위치만큼 문자열로(-) 표시
-  printDistance() {
-    const distance = "-".repeat(this.position);
-    return `${this.name} : ${distance}`;
-  }
 }

@@ -76,7 +76,8 @@ src/
 │   └── Cars.js         # 모든 자동차 관리 클래스
 ├── utils/
 │   ├── validators.js   # 입력값, 구분자 검증
-│   └── utils.js        # 유틸 함수(문자열 분리, 숫자 변환)
+│   ├── randomUtils.js  # 랜덤값 관련 유틸 함수
+│   └── utils.js        # 유틸 함수
 ├── view/
 │   ├── InputView.js    # 입력
 │   └── OutputView.js   # 출력

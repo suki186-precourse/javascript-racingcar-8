@@ -46,9 +46,36 @@ describe("자동차 경주", () => {
     });
   });
 
-  test("예외 테스트", async () => {
+  // 예외 케이스 데이터
+  const exceptionTestCases = [
+    {
+      name: "자동차 이름이 5자를 초과한 경우",
+      inputs: ["suki,woowaaa", "1"],
+    },
+    {
+      name: "자동차 이름이 공백인 경우 (연속 쉼표)",
+      inputs: ["suki,,poki", "1"],
+    },
+    {
+      name: "중복된 이름이 있는 경우",
+      inputs: ["suki,poki,suki", "1"],
+    },
+    {
+      name: "시도 횟수가 숫자가 아닌 경우",
+      inputs: ["suki,poki", "abc"],
+    },
+    {
+      name: "시도 횟수가 1 미만인 경우 (0)",
+      inputs: ["suki,poki", "0"],
+    },
+    {
+      name: "쉼표 외 다른 구분자를 사용한 경우",
+      inputs: ["suki;poki", "1"],
+    },
+  ];
+
+  test.each(exceptionTestCases)("예외 테스트: $name", async ({ inputs }) => {
     // given
-    const inputs = ["pobi,javaji"];
     mockQuestions(inputs);
 
     // when

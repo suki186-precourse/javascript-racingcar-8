@@ -1,7 +1,8 @@
 import {
   ERROR_MESSAGE,
-  INVALID_CAR_NAME_REGEX,
+  VALID_CAR_NAME_REGEX,
   NAME_DELIMITER,
+  VALID_TRY_COUNT_REGEX,
 } from "../constants.js";
 import Car from "../domain/Car.js";
 
@@ -22,7 +23,14 @@ export function parseTryCount(count) {
 
 // 자동차 이름 입력값에 한글, 영문, 숫자, 쉼표 외 다른 문자가 있는 경우
 export function validateCarName(input) {
-  if (!INVALID_CAR_NAME_REGEX.test(input)) {
+  if (!VALID_CAR_NAME_REGEX.test(input)) {
     throw new Error(ERROR_MESSAGE.INVALID_DELIMITER);
+  }
+}
+
+// 시도 횟수가 1 이상의 정수가 아닌 경우
+export function validateTryCount(count) {
+  if (!VALID_TRY_COUNT_REGEX.test(count.trim())) {
+    throw new Error(ERROR_MESSAGE.INVALID_TRY_COUNT);
   }
 }

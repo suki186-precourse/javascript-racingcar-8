@@ -3,6 +3,7 @@ import {
   parseCarNameByComma,
   parseTryCount,
   validateCarName,
+  validateTryCount,
 } from "../utils/utils.js";
 
 export const InputView = {
@@ -26,6 +27,9 @@ export const InputView = {
     const tryCountInput = await Console.readLineAsync(
       "시도할 횟수는 몇 회인가요?\n"
     );
+
+    // 시도 횟수 유효성 검사
+    validateTryCount(tryCountInput);
 
     // 정수로 변환
     return parseTryCount(tryCountInput);

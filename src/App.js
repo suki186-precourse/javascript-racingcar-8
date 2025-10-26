@@ -14,15 +14,7 @@ class App {
       const allCars = new Cars(createCars(carNames));
 
       // ===== 3. 실행 및 결과 출력
-      OutputView.printResultHeader(); // "실행 결과" 텍스트
-
-      // 시도 횟수만큼 라운드 반복
-      for (let r = 0; r < tryCount; r++) {
-        allCars.moveAll();
-
-        const carInfos = allCars.getCarInfos();
-        OutputView.printRaceRoundResult(carInfos); // 라운드 결과 출력
-      }
+      this.#runRaces(allCars, tryCount);
 
       // ===== 4. 최종 우승자 출력
       const winners = allCars.getWinners();
@@ -30,6 +22,22 @@ class App {
     } catch (error) {
       OutputView.printError(error.message);
     }
+  }
+
+  // 전체 라운드 실행 로직
+  #runRaces(allCars, tryCount) {
+    OutputView.printResultHeader();
+    // 시도 횟수만큼 라운드 반복
+    for (let r = 0; r < tryCount; r++) {
+      this.#runRound(allCars);
+    }
+  }
+
+  // 한 라운드 실행 및 출력
+  #runRound(allCars) {
+    allCars.moveAll();
+    const carInfos = allCars.getCarInfos();
+    OutputView.printRaceRoundResult(carInfos);
   }
 }
 

@@ -1,10 +1,6 @@
 import { Console } from "@woowacourse/mission-utils";
-import {
-  parseCarNameByComma,
-  parseTryCount,
-  validateCarName,
-  validateTryCount,
-} from "../utils/utils.js";
+import { parseCarNameByComma, parseTryCount } from "../utils/utils.js";
+import { validateCarName, validateTryCount } from "../utils/validators.js";
 
 export const InputView = {
   // ===== 자동차 이름 입력 및 구분자 기준으로 분리

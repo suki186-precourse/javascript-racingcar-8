@@ -30,7 +30,7 @@ export function validateCarName(input) {
 
 // 시도 횟수가 1 이상의 정수가 아닌 경우
 export function validateTryCount(count) {
-  if (!VALID_TRY_COUNT_REGEX.test(count.trim())) {
+  if (count == null || !VALID_TRY_COUNT_REGEX.test(count.trim())) {
     throw new Error(ERROR_MESSAGE.INVALID_TRY_COUNT);
   }
 }

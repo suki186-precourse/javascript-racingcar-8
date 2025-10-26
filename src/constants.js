@@ -14,7 +14,7 @@ export const VALID_CAR_NAME_REGEX = /^[a-zA-Z0-9가-힣,\s]*$/;
 export const VALID_TRY_COUNT_REGEX = /^[1-9]\d*$/; // 1이상의 정수 정규식
 
 // === 에러 메세지
-export const ERROR = "\n[ERROR]";
+export const ERROR = "[ERROR]";
 
 export const ERROR_MESSAGE = {
   NAME_LENGTH: `${ERROR} 자동차 이름은 ${NAME_MAX_LENGTH}자 이하만 가능합니다.`,

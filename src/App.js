@@ -21,6 +21,7 @@ class App {
       OutputView.printWinners(winners);
     } catch (error) {
       OutputView.printError(error.message);
+      throw error;
     }
   }
 

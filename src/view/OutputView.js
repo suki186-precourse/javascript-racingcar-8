@@ -19,4 +19,9 @@ export const OutputView = {
   printWinners(winners) {
     Console.print(`최종 우승자 : ${winners.join(", ")}`);
   },
+
+  // 에러 메세지 출력
+  printError(message) {
+    Console.print(message);
+  },
 };

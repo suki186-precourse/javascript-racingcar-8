@@ -1,3 +1,4 @@
+import { ERROR_MESSAGES } from "../constants.js";
 import { getRandomNumber } from "../utils/randomUtils.js";
 import Car from "./Car.js";
 
@@ -5,6 +6,7 @@ class RacingGame {
   #carList; // Car 배열
 
   constructor(names) {
+    this.#validateNames(names);
     this.#carList = names.map((name) => new Car(name));
   }
 
@@ -32,6 +34,19 @@ class RacingGame {
       .map((car) => car.name);
 
     return winners;
+  }
+
+  #validateNames(names) {
+    // 자동차가 2개 미만인 경우
+    if (names.length < 2) {
+      throw new Error(ERROR_MESSAGES.MIN_CAR_COUNT);
+    }
+
+    // 중복된 이름이 존재하는 경우
+    const uniqueNames = new Set(names);
+    if (uniqueNames.size != names.length) {
+      throw new Error(ERROR_MESSAGES.DUPLICATE_CAR_NAME);
+    }
   }
 }
 export default RacingGame;

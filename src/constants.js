@@ -34,6 +34,9 @@ export const ERROR = "[ERROR]";
 export const ERROR_MESSAGES = Object.freeze({
   // 1. 자동차 이름
   INVALID_CAR_NAME: `${ERROR} 자동차 이름은 5자 이하만 가능합니다.`,
+  EMPTY_CAR_NAME: `${ERROR} 자동차 이름은 공백일 수 없습니다.`,
+  DUPLICATE_CAR_NAME: `${ERROR} 자동차 이름은 중복될 수 없습니다.`,
+  MIN_CAR_COUNT: `${ERROR} 자동차는 최소 2대 이상이어야 합니다.`,
 
   // 2. 구분자
 

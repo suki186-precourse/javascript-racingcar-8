@@ -9,8 +9,8 @@ export const InputView = {
     );
 
     // 유효성 검사 (예정)
-    // 리스트로 변환 (예정)
-    return carNames;
+    // 리스트로 변환
+    return carNames.split(",").map((name) => name.trim());
   },
 
   // ===== 이동 횟수 입력

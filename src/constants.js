@@ -9,7 +9,7 @@ export const INPUT_MESSAGES = Object.freeze({
 export const OUTPUT_MESSAGES = Object.freeze({
   RESULT_INFO: "\n실행 결과",
   ROUND_RESULT: (name, distance) => `${name} : ${"-".repeat(distance)}`,
-  FINAL_WINNERS: (winners) => `\n최종 우승자 : ${winners}`,
+  FINAL_WINNERS: (winners) => `최종 우승자 : ${winners}`,
 });
 
 export const COMMON = Object.freeze({

@@ -1,28 +1,14 @@
-import RacingGame from "./domain/RacingGame.js";
-import { InputView } from "./view/InputView.js";
-import { OutputView } from "./view/OutputView.js";
+import { RacingGameController } from "./controller/RacingGameController.js";
 
 class App {
+  #controller;
+
+  constructor() {
+    this.#controller = new RacingGameController();
+  }
+
   async run() {
-    try {
-      const names = await InputView.readCarNames();
-      const count = await InputView.readMoveCount();
-
-      const racingGame = new RacingGame(names);
-
-      OutputView.printResultInfo();
-      for (var i = 0; i < count; i++) {
-        racingGame.playRound();
-
-        const cars = racingGame.getCarsInfo();
-        OutputView.printRoundResult(cars);
-      }
-      const winners = racingGame.getWinners();
-      OutputView.printFinalWinners(winners);
-    } catch (error) {
-      //console.print(error.message);
-      throw error;
-    }
+    await this.#controller.run();
   }
 }
 

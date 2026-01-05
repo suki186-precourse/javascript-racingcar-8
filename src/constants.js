@@ -39,6 +39,8 @@ export const ERROR_MESSAGES = Object.freeze({
   MIN_CAR_COUNT: `${ERROR} 자동차는 최소 2대 이상이어야 합니다.`,
 
   // 2. 구분자
+  INVALID_DELIMITER: `${ERROR} 이름은 ,(콤마)로 구분해 주세요.`,
 
   // 3. 이동 횟수
+  INVALID_MOVE_COUNT: `${ERROR} 이동 횟수는 1 이상의 양수만 입력 가능합니다.`,
 });

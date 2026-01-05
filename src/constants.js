@@ -7,7 +7,7 @@ export const INPUT_MESSAGES = Object.freeze({
 
 // ===== 출력 메세지
 export const OUTPUT_MESSAGES = Object.freeze({
-  RESULT_INFO: "\n실행 결과\n",
+  RESULT_INFO: "\n실행 결과",
   ROUND_RESULT: (name, distance) => `${name} : ${"-".repeat(distance)}`,
   FINAL_WINNERS: (winners) => `\n최종 우승자 : ${winners}`,
 });
@@ -20,6 +20,12 @@ export const COMMON = Object.freeze({
 export const CAR_LOGIC = Object.freeze({
   MOVE_STANDARD: 4,
   MOVE_STEP: 1,
+});
+
+// ===== 랜덤
+export const RANDOM_LOGIC = Object.freeze({
+  MIN: 0,
+  MAX: 9,
 });
 
 // ===== 에러 메세지
